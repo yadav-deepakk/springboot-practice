@@ -2,6 +2,7 @@ package com.example.springboot.project.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,6 +17,10 @@ public class GreetController {
 	public String greetUser(@PathVariable String userName) {
 		return "<H2 align='center'>Hello " + userName + "<H2>"; 
 	}
-
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(name = "q", required = true) String q) {
+		return "<h3 align='center'>Searching for " + q +"...</h3>"; 
+	}
 
 }
